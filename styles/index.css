@@ -54,6 +54,7 @@ h1, h2, h3, .heritage-header {
     position: relative;
     padding: 40px;
     border: 20px solid transparent;
+    border: 8px solid var(--accent-gold);
     border-image: url('../assets/mandala_border.png') 100 round;
 }
 
