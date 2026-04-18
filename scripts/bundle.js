@@ -726,8 +726,8 @@ class SwarajyaApp {
             tip.style.cssText = 'position:fixed;z-index:9999;max-width:280px;pointer-events:none;opacity:1';
             document.body.appendChild(tip);
         }
-        tip.innerHTML = `<div style="background:#3D2B1F;color:#F4EBD0;padding:14px 16px;box-shadow:0 8px 32px rgba(0,0,0,0.3);border-left:4px solid #D4AF37;font-family:'Montserrat',sans-serif">
-            <p style="font-family:'Cinzel',serif;font-weight:700;color:#FF9933;font-size:12px;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">${term}</p>
+        tip.innerHTML = `<div style="background:rgba(15, 23, 42, 0.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#F3F4F6;padding:14px 16px;border:1px solid rgba(255,255,255,0.1);box-shadow:0 8px 32px rgba(0,0,0,0.5);border-left:4px solid #D4AF37;font-family:'Inter',sans-serif;border-radius:4px">
+            <p style="font-family:'Playfair Display',serif;font-weight:700;color:#FF9933;font-size:12px;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">${term}</p>
             <p style="font-size:13px;line-height:1.5;opacity:0.9">${text}</p>
         </div>`;
         tip.style.display = 'block';

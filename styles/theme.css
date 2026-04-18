@@ -2,34 +2,32 @@
     --saffron: #FF9933;
     --pure-white: #FFFFFF;
     --india-green: #138808;
-    --ashoka-blue: #000080;
+    --ashoka-blue: #1E3A8A;
     --gold: #D4AF37;
     --gold-light: #F9E29C;
-    --parchment: #F4EBD0;
-    --leather: #3D2B1F;
-    --glass: rgba(255, 255, 255, 0.15);
+    --parchment: #0A0F1C;
+    --leather: #F3F4F6;
+    --glass: rgba(255, 255, 255, 0.05);
 }
 
 /* ─── BODY & BACKGROUND ─────────────────────────────────────── */
 body {
     background: var(--parchment);
-    background-image:
-        url('https://www.transparenttextures.com/patterns/handmade-paper.png'),
-        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.3) 0%, transparent 100%);
+    background-image: radial-gradient(circle at 50% 10%, rgba(30,58,138,0.2) 0%, transparent 80%);
     color: var(--leather);
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
     overflow-x: hidden;
 }
 
-/* ─── PARCHMENT CARD ─────────────────────────────────────────── */
+/* ─── PARCHMENT CARD (now Glass Card) ───────────────────────── */
 .parchment-card {
-    background: #FFFCF2;
-    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
-    border: 1px solid rgba(184, 134, 11, 0.2);
-    box-shadow:
-        0 4px 15px rgba(0, 0, 0, 0.05),
-        inset 0 0 50px rgba(184, 134, 11, 0.05);
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     position: relative;
+    border-radius: 12px;
 }
 
 /* ─── GOLD BORDER ────────────────────────────────────────────── */
@@ -40,17 +38,17 @@ body {
 
 /* ─── HANDWRITTEN REVEAL ─────────────────────────────────────── */
 .handwritten {
-    font-family: 'Lora', serif;
+    font-family: 'Playfair Display', serif;
     font-style: italic;
     opacity: 0;
 }
 
 /* ─── STICKY HEADER ──────────────────────────────────────────── */
 header.sticky-header {
-    background: rgba(244, 235, 208, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 2px solid var(--gold);
+    background: rgba(10, 15, 28, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 /* ─── ASHOKA CHAKRA BG ───────────────────────────────────────── */
@@ -88,7 +86,7 @@ header.sticky-header {
 
 /* ─── ODOMETER NUMBERS ───────────────────────────────────────── */
 .odometer {
-    font-family: 'Cinzel', serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 700;
 }
 
@@ -168,7 +166,7 @@ input.border-red-500 {
 /* ─── DOUBT SECTION ──────────────────────────────────────────── */
 .doubt-label {
     display: block;
-    font-family: 'Cinzel', serif;
+    font-family: 'Playfair Display', serif;
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -192,7 +190,7 @@ input.border-red-500 {
     background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
     border: 1.5px solid rgba(212, 175, 55, 0.35);
     padding: 12px 16px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
     color: var(--leather);
     outline: none;
@@ -232,7 +230,7 @@ input.border-red-500 {
     border-radius: 20px;
     font-size: 0.65rem;
     font-weight: 700;
-    font-family: 'Cinzel', serif;
+    font-family: 'Playfair Display', serif;
     letter-spacing: 0.05em;
     color: var(--leather);
     opacity: 0.7;
@@ -245,7 +243,7 @@ input.border-red-500 {
 /* Tag picker buttons */
 .doubt-tag-btn {
     padding: 5px 14px;
-    font-family: 'Cinzel', serif;
+    font-family: 'Playfair Display', serif;
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -273,7 +271,7 @@ input.border-red-500 {
 .doubt-submit-btn {
     background: var(--ashoka-blue);
     color: #fff;
-    font-family: 'Cinzel', serif;
+    font-family: 'Playfair Display', serif;
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -299,7 +297,7 @@ input.border-red-500 {
 
 /* Stat chips */
 .doubt-stat-chip {
-    font-family: 'Cinzel', serif;
+    font-family: 'Playfair Display', serif;
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -317,7 +315,7 @@ input.border-red-500 {
     background: #FFFCF2;
     border: 1.5px solid rgba(212, 175, 55, 0.35);
     padding: 8px 36px 8px 14px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 0.8rem;
     color: var(--leather);
     outline: none;
@@ -334,7 +332,7 @@ input.border-red-500 {
     background: #FFFCF2;
     border: 1.5px solid rgba(212, 175, 55, 0.35);
     padding: 8px 12px;
-    font-family: 'Cinzel', serif;
+    font-family: 'Playfair Display', serif;
     font-size: 0.62rem;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -384,7 +382,7 @@ input.border-red-500 {
 }
 
 .doubt-card-name {
-    font-family: 'Cinzel', serif;
+    font-family: 'Playfair Display', serif;
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -399,7 +397,7 @@ input.border-red-500 {
 }
 
 .doubt-cat-badge {
-    font-family: 'Cinzel', serif;
+    font-family: 'Playfair Display', serif;
     font-size: 0.58rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -426,7 +424,7 @@ input.border-red-500 {
 }
 
 .doubt-tag-pill {
-    font-family: 'Cinzel', serif;
+    font-family: 'Playfair Display', serif;
     font-size: 0.58rem;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -452,7 +450,7 @@ input.border-red-500 {
     border: 1.5px solid rgba(212, 175, 55, 0.35);
     padding: 5px 12px;
     border-radius: 20px;
-    font-family: 'Cinzel', serif;
+    font-family: 'Playfair Display', serif;
     font-size: 0.62rem;
     font-weight: 700;
     letter-spacing: 0.06em;
@@ -489,7 +487,7 @@ input.border-red-500 {
 
 /* New badge */
 .doubt-new-badge {
-    font-family: 'Cinzel', serif;
+    font-family: 'Playfair Display', serif;
     font-size: 0.55rem;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -502,7 +500,7 @@ input.border-red-500 {
 
 /* Answered tag */
 .doubt-answered-badge {
-    font-family: 'Cinzel', serif;
+    font-family: 'Playfair Display', serif;
     font-size: 0.55rem;
     font-weight: 700;
     letter-spacing: 0.08em;
