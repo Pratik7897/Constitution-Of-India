@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;700&display=swap');
 
 :root {
     --saffron: #FF9933;
@@ -16,25 +16,26 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: var(--parchment);
     color: var(--leather);
     overflow-x: hidden;
 }
 
 h1, h2, h3, .heritage-header {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', serif;
     letter-spacing: 0.1em;
     color: var(--ashoka-blue);
 }
 
 .preamble-text {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Lora', serif;
 }
 
 .bg-parchment {
     background-color: var(--parchment);
-    background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.02) 1px, transparent 0);
+    background-image: 
+        radial-gradient(circle at 2px 2px, rgba(0,0,0,0.02) 1px, transparent 0);
     position: relative;
 }
 
@@ -42,7 +43,8 @@ h1, h2, h3, .heritage-header {
     content: "";
     position: fixed;
     inset: 0;
-    background-image: radial-gradient(circle at 50% 10%, rgba(30,58,138,0.15) 0%, transparent 60%);
+    background-image: url('https://www.transparenttextures.com/patterns/pinstripe.png'); /* Subtle texture fallback */
+    opacity: 0.05;
     pointer-events: none;
     z-index: -1;
 }
@@ -122,10 +124,9 @@ h1, h2, h3, .heritage-header {
     overflow: hidden;
     height: 120px; /* Initial height */
     transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(12px);
-    border-left: 4px solid var(--saffron);
-    border-radius: 8px;
+    background: #fffdf5;
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    border-left: 8px solid var(--saffron);
     position: relative;
 }
 
@@ -137,13 +138,13 @@ h1, h2, h3, .heritage-header {
     content: "";
     position: absolute;
     left: 0; width: 100%; height: 20px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.2), transparent);
+    background: linear-gradient(to bottom, rgba(61,43,31,0.1), transparent);
     z-index: 2;
 }
 
 .scroll-piece::after {
     bottom: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
+    background: linear-gradient(to top, rgba(61,43,31,0.1), transparent);
 }
 
 /* Filigree Borders */
@@ -188,10 +189,9 @@ h1, h2, h3, .heritage-header {
 
 /* Article Section Styles */
 .article-box {
-    background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
+    background: #fffdf5;
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    border-radius: 4px;
     position: relative;
     min-height: 250px;
     display: flex;
@@ -229,10 +229,10 @@ h1, h2, h3, .heritage-header {
 
 /* Author Highlighting */
 .author-highlight {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', serif;
     font-weight: 700;
     color: var(--saffron);
-    text-shadow: 0 0 10px rgba(255, 153, 51, 0.5);
+    text-shadow: 0 0 5px rgba(255, 153, 51, 0.3);
     position: relative;
     display: inline-block;
 }
