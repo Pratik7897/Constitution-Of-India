@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;700&display=swap');
+
+:root {
+    --saffron: #FF9933;
+    --wash-white: #FDFDFD;
+    --green: #138808;
+    --ashoka-blue: #000080;
+    --parchment: #F5F5DC;
+    --leather: #3d2b1f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--parchment);
+    color: var(--leather);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, .heritage-header {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.1em;
+    color: var(--ashoka-blue);
+}
+
+.preamble-text {
+    font-family: 'Lora', serif;
+}
+
+.bg-parchment {
+    background-color: var(--parchment);
+    background-image: 
+        radial-gradient(circle at 2px 2px, rgba(0,0,0,0.02) 1px, transparent 0);
+    position: relative;
+}
+
+.bg-parchment::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/pinstripe.png'); /* Subtle texture fallback */
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Heritage Borders */
+.mandala-border {
+    position: relative;
+    padding: 40px;
+    border: 20px solid transparent;
+    border-image: url('../assets/mandala_border.png') 100 round;
+}
+
+/* Gold Leaf Shimmer */
+.gold-shimmer {
+    background: linear-gradient(
+        to right,
+        #bf953f,
+        #fcf6ba,
+        #b38728,
+        #fbf5b7,
+        #aa771c
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+}
+
+/* Scroll Overlay */
+#page-flip-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: var(--parchment);
+    z-index: 100;
+    transform-origin: left;
+    transform: rotateY(-90deg);
+    pointer-events: none;
+    box-shadow: inset 50px 0 100px rgba(0,0,0,0.1);
+}
+
+/* Audio Toggle Pulse */
+.audio-pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 153, 51, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 153, 51, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 153, 51, 0); }
+}
+
+/* Anti-Gravity Floating Effect */
+.anti-gravity-box {
+    background: var(--parchment);
+    border: 2px solid var(--leather);
+    padding: 2rem;
+    position: relative;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    z-index: 10;
+}
+
+.anti-gravity-box:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* Scroll Unfurl Mechanism */
+.scroll-container {
+    perspective: 1200px;
+}
+
+.scroll-piece {
+    overflow: hidden;
+    height: 120px; /* Initial height */
+    transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #fffdf5;
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    border-left: 8px solid var(--saffron);
+    position: relative;
+}
+
+.scroll-piece.active {
+    height: 400px; /* Unfurled height */
+}
+
+.scroll-piece::before, .scroll-piece::after {
+    content: "";
+    position: absolute;
+    left: 0; width: 100%; height: 20px;
+    background: linear-gradient(to bottom, rgba(61,43,31,0.1), transparent);
+    z-index: 2;
+}
+
+.scroll-piece::after {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(61,43,31,0.1), transparent);
+}
+
+/* Filigree Borders */
+.filigree-border {
+    border: 15px solid transparent;
+    border-image: radial-gradient(circle, var(--saffron) 10%, transparent 70%) 30 stretch;
+    padding: 2rem;
+}
+
+/* Ashoka Chakra Background Animation */
+.chakra-bg {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px; height: 300px;
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.rotating-chakra {
+    animation: rotate-slow 20s linear infinite;
+}
+
+@keyframes rotate-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    background: var(--parchment);
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--saffron), var(--green));
+    border-radius: 6px;
+    border: 3px solid var(--parchment);
+}
+
+/* Article Section Styles */
+.article-box {
+    background: #fffdf5;
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    border-radius: 4px;
+    position: relative;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.article-content {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.article-box.expanded {
+    grid-column: span 3; /* Expand to full width on grid */
+    z-index: 50;
+}
+
+@media (max-width: 768px) {
+    .article-box.expanded {
+        grid-column: span 1;
+    }
+}
+
+.article-box.expanded .article-content {
+    opacity: 1;
+    margin-top: 1.5rem;
+}
+
+.article-box.expanded .article-toggle-text svg {
+    transform: rotate(180deg);
+}
+
+.article-toggle-text {
+    transition: color 0.3s ease;
+}
+
+/* Author Highlighting */
+.author-highlight {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    color: var(--saffron);
+    text-shadow: 0 0 5px rgba(255, 153, 51, 0.3);
+    position: relative;
+    display: inline-block;
+}
+
+.author-highlight::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--saffron), transparent);
+}

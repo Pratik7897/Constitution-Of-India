@@ -1,0 +1,50 @@
+[
+    {
+        "q": "Who was the Constitutional Advisor to the Constituent Assembly?",
+        "a": "B.N. Rau",
+        "options": ["B.R. Ambedkar", "B.N. Rau", "Dr. Rajendra Prasad", "K.M. Munshi"],
+        "fact": "B.N. Rau was a key figure in drafting the Constitution and later became a judge of the ICJ."
+    },
+    {
+        "q": "Which amendment is widely known as the 'Mini-Constitution' of India?",
+        "a": "42nd Amendment",
+        "options": ["44th Amendment", "42nd Amendment", "1st Amendment", "73rd Amendment"],
+        "fact": "The 42nd Amendment (1976) introduced extensive changes to the Preamble, Articles, and Schedules."
+    },
+    {
+        "q": "Who was the first person to sign the original Constitution of India?",
+        "a": "Dr. Rajendra Prasad",
+        "options": ["Jawaharlal Nehru", "Dr. B.R. Ambedkar", "Dr. Rajendra Prasad", "Sardar Patel"],
+        "fact": "The first signature on the document was that of India's first President, Dr. Rajendra Prasad."
+    },
+    {
+        "q": "The concept of 'Justice' (Social, Economic, and Political) in the Preamble is inspired by?",
+        "a": "Russian Revolution",
+        "options": ["French Revolution", "American Revolution", "Russian Revolution", "Irish Constitution"],
+        "fact": "The Russian Revolution of 1917 influenced the idea of social and economic justice in our Constitution."
+    },
+    {
+        "q": "Which article of the Constitution is referred to as the 'Heart and Soul'?",
+        "a": "Article 32",
+        "options": ["Article 21", "Article 14", "Article 32", "Article 44"],
+        "fact": "Article 32 (Right to Constitutional Remedies) ensures that Fundamental Rights are protected by the Supreme Court."
+    },
+    {
+        "q": "The original Constitution was handwritten in which style of calligraphy?",
+        "a": "Italic",
+        "options": ["Roman", "Italic", "Gothic", "Copperplate"],
+        "fact": "Prem Behari Narain Raizada wrote the entire Constitution in a beautiful flowing italic style."
+    },
+    {
+        "q": "How many languages are currently recognized in the 8th Schedule?",
+        "a": "22",
+        "options": ["18", "22", "14", "25"],
+        "fact": "Originally there were 14, but subsequent amendments increased the count to 22."
+    },
+    {
+        "q": "The 'Fundamental Duties' were added on the recommendation of which committee?",
+        "a": "Swaran Singh Committee",
+        "options": ["Verma Committee", "Sarkaria Commission", "Swaran Singh Committee", "Mandal Commission"],
+        "fact": "The Swaran Singh Committee recommended these duties during the National Emergency in 1976."
+    }
+]

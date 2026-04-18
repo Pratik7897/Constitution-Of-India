@@ -1,0 +1,72 @@
+[
+    {
+        "id": "preamble",
+        "title": "The Preamble",
+        "description": "The soul of the Constitution, defining its philosophy and objectives.",
+        "points": [
+            "Source of Authority: 'We, the People of India'.",
+            "Nature of State: Sovereign, Socialist, Secular, Democratic, Republic.",
+            "Objectives: Justice, Liberty, Equality, Fraternity."
+        ],
+        "tags": ["philosophy"]
+    },
+    {
+        "id": "part1",
+        "title": "Part I: The Union and Its Territory",
+        "articles": "1 to 4",
+        "description": "Defines the name and territory of the Union, and the formation of new states.",
+        "points": [
+            "India, that is Bharat, shall be a Union of States.",
+            "Parliament can admit or form new states by law.",
+            "Boundaries can be altered without a constitutional amendment."
+        ],
+        "tags": ["territory", "union"]
+    },
+    {
+        "id": "part3",
+        "title": "Part III: Fundamental Rights",
+        "articles": "12 to 35",
+        "description": "The 'Magna Carta' of India, guaranteed to its citizens.",
+        "category": "Rights & Duties",
+        "points": [
+            "Right to Equality (Art 14-18)",
+            "Right to Freedom (Art 19-22)",
+            "Right against Exploitation (Art 23-24)",
+            "Right to Freedom of Religion (Art 25-28)",
+            "Cultural and Educational Rights (Art 29-30)",
+            "Right to Constitutional Remedies (Art 32) - 'Heart and Soul' per Dr. Ambedkar."
+        ],
+        "tags": ["rights", "citizens"]
+    },
+    {
+        "id": "part4a",
+        "title": "Part IV-A: Fundamental Duties",
+        "articles": "51-A",
+        "description": "The moral obligations of all citizens to help promote a spirit of patriotism and uphold the unity of India.",
+        "category": "Rights & Duties",
+        "points": [
+            "To abide by the Constitution and respect its ideals.",
+            "To cherish the noble ideals of the national struggle.",
+            "To safeguard public property and abjure violence."
+        ],
+        "tags": ["duties", "citizens"]
+    },
+    {
+        "id": "schedule1",
+        "title": "Schedule 1: States and UTs",
+        "description": "Lists the names of the States and the Union Territories and their territorial jurisdiction.",
+        "tags": ["schedule"]
+    },
+    {
+        "id": "schedule8",
+        "title": "Schedule 8: Official Languages",
+        "description": "Lists the 22 official languages recognized by the Constitution.",
+        "tags": ["schedule", "language"]
+    },
+    {
+        "id": "schedule10",
+        "title": "Schedule 10: Anti-Defection",
+        "description": "Contains provisions as to disqualification on the ground of defection.",
+        "tags": ["schedule", "politics"]
+    }
+]

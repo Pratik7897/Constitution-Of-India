@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swarajya Vidya – The Living Constitution</title>
+    <meta name="description" content="An interactive educational platform exploring the Indian Constitution — Preamble, Fundamental Rights, Quiz, and more.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        saffron: '#FF9933',
+                        indiangreen: '#138808',
+                        ashokablue: '#000080',
+                        leather: '#3D2B1F',
+                        gold: '#D4AF37',
+                        parchment: '#F4EBD0'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-parchment min-h-screen">
+
+    <!-- Rotating Ashoka Chakra Background -->
+    <img src="assets/chakra.png" class="rotating-chakra-bg" alt="Ashoka Chakra" aria-hidden="true">
+
+    <!-- Sticky Header -->
+    <header class="sticky-header sticky top-0 w-full z-50 p-4 transition-all shadow-md">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 md:px-6">
+            <div class="flex items-center gap-3">
+                <img src="assets/pccoe_logo.png" alt="PCCoE" class="h-12 drop-shadow-md">
+                <div class="h-10 w-[1px] bg-gold/30 mx-2 hidden md:block"></div>
+                <h1 class="heritage-header font-bold text-lg md:text-2xl text-ashokablue uppercase tracking-widest">
+                    Swarajya Vidya
+                </h1>
+            </div>
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex space-x-8 heritage-header text-xs font-bold uppercase tracking-widest">
+                <a href="#preamble-section" class="hover:text-saffron transition-colors">Preamble</a>
+                <a href="#library-section" class="hover:text-saffron transition-colors">Gyan Library</a>
+                <a href="#quiz-section" class="hover:text-saffron transition-colors">Civic Quiz</a>
+                <a href="#calc-section" class="hover:text-saffron transition-colors">Witness</a>
+                <a href="#doubt-section" class="hover:text-saffron transition-colors">Have a Doubt?</a>
+            </nav>
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-nav-toggle" class="md:hidden heritage-header font-bold text-xl text-leather w-10 h-10 flex items-center justify-center">☰</button>
+        </div>
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-nav-menu" class="hidden md:hidden" style="display: none !important;">
+            <!-- will be shown via JS -->
+        </div>
+    </header>
+
+    <!-- Mobile Nav Drawer (separate, full-width) -->
+    <div id="mobile-nav-menu" class="mobile-nav-menu" style="display:none" aria-hidden="true">
+        <nav class="flex flex-col items-center gap-6 py-8 heritage-header text-sm font-bold uppercase tracking-widest bg-parchment border-b-4 border-gold shadow-lg">
+            <a href="#preamble-section" class="hover:text-saffron transition-colors">Preamble</a>
+            <a href="#library-section" class="hover:text-saffron transition-colors">Gyan Library</a>
+            <a href="#quiz-section" class="hover:text-saffron transition-colors">Civic Quiz</a>
+            <a href="#calc-section" class="hover:text-saffron transition-colors">Witness</a>
+            <a href="#doubt-section" class="hover:text-saffron transition-colors">Have a Doubt?</a>
+        </nav>
+    </div>
+
+    <main class="relative z-10">
+        <!-- ════════════════════════════════════════════════════════ -->
+        <!-- HERO SECTION                                            -->
+        <!-- ════════════════════════════════════════════════════════ -->
+        <section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center px-6">
+            <h2 class="text-sm font-bold mb-6 text-leather/50 tracking-[0.6em] uppercase">Samvidhan-e-Hind</h2>
+            <div class="parchment-card p-10 md:p-20 border-double border-8 border-gold/40 relative max-w-5xl shadow-2xl mx-4">
+                <h1 class="text-5xl md:text-8xl font-bold text-ashokablue leading-tight mb-10 uppercase heritage-header">
+                    The Living <br/>Constitution
+                </h1>
+                <p class="preamble-text italic text-xl md:text-2xl max-w-3xl mx-auto text-leather/80 leading-relaxed">
+                    "We, the People of India, having solemnly resolved to constitute India into a Sovereign, Socialist, Secular, Democratic Republic…"
+                </p>
+                <div class="mt-12 flex flex-wrap justify-center gap-6">
+                    <a href="#preamble-section" class="gold-border px-8 py-4 font-bold heritage-header hover:bg-gold hover:text-white transition-all text-xs uppercase tracking-widest">Unroll Preamble</a>
+                    <a href="#library-section" class="bg-saffron text-white px-8 py-4 font-bold heritage-header hover:shadow-2xl hover:scale-105 transition-all text-xs uppercase tracking-widest">Explore Library</a>
+                    <a href="#quiz-section" class="bg-ashokablue text-white px-8 py-4 font-bold heritage-header hover:shadow-2xl hover:scale-105 transition-all text-xs uppercase tracking-widest">Take the Quiz</a>
+                </div>
+            </div>
+            <!-- Scroll indicator -->
+            <div class="mt-12 animate-bounce text-gold/60 heritage-header text-xs uppercase tracking-widest">
+                <div>↓ Scroll to Explore</div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════════ -->
+        <!-- INTERACTIVE PREAMBLE                                    -->
+        <!-- ════════════════════════════════════════════════════════ -->
+        <section id="preamble-section" class="py-24 px-6 bg-white/10 backdrop-blur-sm">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl heritage-header mb-4 text-saffron uppercase tracking-widest font-bold scroll-reveal">The Pillars of Democracy</h2>
+                <p class="italic text-leather/50 mb-12 scroll-reveal">Hover over the highlighted words to reveal their meaning</p>
+                <div class="parchment-card p-10 md:p-16 text-justify text-xl md:text-2xl leading-loose italic border-gold shadow-inner">
+                    <span class="handwritten">WE, THE PEOPLE OF INDIA, having solemnly resolved to constitute India into a </span>
+                    <span class="handwritten pillar-target font-bold text-ashokablue cursor-help underline decoration-gold/40 decoration-dotted">Sovereign</span>,
+                    <span class="handwritten pillar-target font-bold text-ashokablue cursor-help underline decoration-gold/40 decoration-dotted">Socialist</span>,
+                    <span class="handwritten pillar-target font-bold text-ashokablue cursor-help underline decoration-gold/40 decoration-dotted">Secular</span>,
+                    <span class="handwritten pillar-target font-bold text-ashokablue cursor-help underline decoration-gold/40 decoration-dotted">Democratic</span>
+                    <span class="handwritten pillar-target font-bold text-ashokablue cursor-help underline decoration-gold/40 decoration-dotted">Republic</span>
+                    <span class="handwritten"> and to secure to all its citizens: </span>
+                    <span class="handwritten pillar-target font-bold text-indiangreen cursor-help underline decoration-gold/40 decoration-dotted">Justice</span>, social, economic and political;
+                    <span class="handwritten pillar-target font-bold text-indiangreen cursor-help underline decoration-gold/40 decoration-dotted">Liberty</span> of thought, expression, belief, faith and worship;
+                    <span class="handwritten pillar-target font-bold text-indiangreen cursor-help underline decoration-gold/40 decoration-dotted">Equality</span> of status and of opportunity; and to promote among them all
+                    <span class="handwritten pillar-target font-bold text-indiangreen cursor-help underline decoration-gold/40 decoration-dotted">Fraternity</span> assuring the dignity of the individual and the unity and integrity of the Nation.
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════════ -->
+        <!-- VICHARA CHAKRA (FACT TICKER)                           -->
+        <!-- ════════════════════════════════════════════════════════ -->
+        <section class="py-20 px-6 bg-leather text-parchment overflow-hidden border-y-4 border-gold/40">
+            <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
+                <div class="flex-shrink-0 relative">
+                    <img src="assets/chakra.png" class="w-40 h-40 md:w-48 md:h-48 rotating-chakra opacity-80 filter brightness-125" alt="Chakra">
+                    <span class="absolute inset-0 flex items-center justify-center heritage-header text-gold text-[10px] font-bold uppercase tracking-widest text-center px-4 leading-tight">Vichara<br>Chakra</span>
+                </div>
+                <div id="fact-ticker" class="flex-1 text-center md:text-left min-h-[120px] flex items-center justify-center md:justify-start">
+                    <p class="preamble-text italic text-xl text-parchment/70 animate-pulse">Consulting the ancient scrolls...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════════ -->
+        <!-- DIGITAL LIBRARY (GYAN SECTION)                         -->
+        <!-- ════════════════════════════════════════════════════════ -->
+        <section id="library-section" class="py-24 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-5xl heritage-header text-ashokablue uppercase font-bold mb-4 scroll-reveal">The Gyan Library</h2>
+                    <p class="text-leather/60 italic font-bold tracking-widest uppercase text-sm scroll-reveal">Expandable guidance for every Part, Article & Schedule</p>
+                </div>
+
+                <div class="mb-10 max-w-2xl mx-auto scroll-reveal">
+                    <div class="relative">
+                        <input type="text" id="library-search"
+                               placeholder="Search Articles, Parts, Schedules, or Rights..."
+                               class="w-full parchment-card p-5 border border-gold/40 focus:border-saffron outline-none text-base heritage-header shadow-inner transition-colors"
+                               autocomplete="off">
+                        <span class="absolute right-5 top-1/2 -translate-y-1/2 text-gold/50 text-xl">🔍</span>
+                    </div>
+                    <p class="text-xs text-center text-leather/40 mt-2 italic">Try: "fundamental rights", "emergency", "amendment", "art 21"</p>
+                </div>
+
+                <div id="library-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Library cards injected here -->
+                    <div class="col-span-2 text-center py-16 italic text-leather/40">Loading the scrolls...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════════ -->
+        <!-- CONSTITUTIONAL WITNESS CALCULATOR                       -->
+        <!-- ════════════════════════════════════════════════════════ -->
+        <section id="calc-section" class="py-24 px-6 bg-leather/5">
+            <div class="max-w-4xl mx-auto">
+                <div class="parchment-card p-10 md:p-16 text-center border-gold border-8 border-double shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 select-none" aria-hidden="true">
+                        <span class="text-9xl heritage-header text-gold">1950</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl heritage-header font-bold mb-3 text-ashokablue scroll-reveal">The Constitutional Witness</h2>
+                    <p class="mb-10 italic text-leather/60 font-bold scroll-reveal">"Witness the history written during your lifetime"</p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12 scroll-reveal">
+                        <label for="birth-year" class="heritage-header font-bold text-sm uppercase tracking-widest text-leather/70">Your Birth Year:</label>
+                        <input type="number" id="birth-year" placeholder="e.g. 1995" min="1900" max="2024"
+                               class="parchment-card p-4 border border-gold/40 w-44 text-center text-2xl font-bold focus:border-saffron outline-none transition-colors">
+                        <button id="calc-btn" class="bg-saffron text-white px-8 py-4 heritage-header font-bold hover:bg-ashokablue transition-all text-xs uppercase tracking-widest shadow-xl hover:scale-105">
+                            Calculate Legacy
+                        </button>
+                    </div>
+
+                    <!-- Results Grid -->
+                    <div id="calc-results" style="display:none" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="parchment-card p-8 border border-gold/20 text-center hover:border-gold transition-colors">
+                            <span id="amendments-val" class="block text-5xl md:text-6xl font-bold text-saffron mb-2 odometer">0</span>
+                            <p class="font-bold heritage-header text-[10px] uppercase tracking-widest text-leather/60">Amendments Witnessed</p>
+                        </div>
+                        <div class="parchment-card p-8 border border-gold/20 text-center hover:border-gold transition-colors">
+                            <span id="elections-val" class="block text-5xl md:text-6xl font-bold text-indiangreen mb-2 odometer">0</span>
+                            <p class="font-bold heritage-header text-[10px] uppercase tracking-widest text-leather/60">General Elections Observed</p>
+                        </div>
+                        <div class="parchment-card p-8 border border-gold/20 text-center hover:border-gold transition-colors">
+                            <div class="flex items-center justify-center">
+                                <span id="ratio-val" class="block text-5xl md:text-6xl font-bold text-ashokablue mb-2 odometer">0</span>
+                                <span class="text-2xl text-gold font-bold ml-1 self-center mb-2">%</span>
+                            </div>
+                            <p class="font-bold heritage-header text-[10px] uppercase tracking-widest text-leather/60">Of Constitutional Life You've Lived</p>
+                        </div>
+                    </div>
+
+                    <!-- Historical Events You've Witnessed -->
+                    <div id="calc-events" style="display:none" class="hidden parchment-card p-6 border border-gold/20 text-left">
+                        <!-- Injected by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════════ -->
+        <!-- CIVIC SCHOLAR QUIZ                                      -->
+        <!-- ════════════════════════════════════════════════════════ -->
+        <section id="quiz-section" class="py-24 px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-5xl heritage-header text-ashokablue font-bold uppercase mb-4 scroll-reveal">The Civic Scholar Quiz</h2>
+                    <p class="text-leather/60 italic font-bold tracking-widest uppercase text-sm scroll-reveal">Prove your constitutional wisdom — 10 questions, shuffled each time</p>
+                </div>
+
+                <div class="parchment-card p-8 md:p-16 border-gold border-4 shadow-2xl relative">
+                    <!-- Progress Bar -->
+                    <div class="progress-container mb-8">
+                        <div id="quiz-progress" class="progress-bar progress-saffron" style="width:0%"></div>
+                    </div>
+
+                    <div id="quiz-content">
+                        <div class="text-center py-16">
+                            <p class="preamble-text italic text-2xl text-leather/40 animate-pulse">Gathering the assembly...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════════ -->
+        <!-- HAVE A DOUBT?                                           -->
+        <!-- ════════════════════════════════════════════════════════ -->
+        <section id="doubt-section" class="py-24 px-6 bg-leather/5">
+            <div class="max-w-5xl mx-auto">
+
+                <!-- Section Header -->
+                <div class="text-center mb-14 scroll-reveal">
+                    <p class="text-xs font-bold uppercase tracking-[0.5em] text-saffron mb-3 heritage-header">Community Forum</p>
+                    <h2 class="text-3xl md:text-5xl heritage-header text-ashokablue font-bold uppercase mb-4">Have a Doubt?</h2>
+                    <p class="italic text-leather/60 text-base max-w-2xl mx-auto">
+                        Every great democracy is built on questions. Ask yours — let the community illuminate the path.
+                    </p>
+                    <div class="mt-6 flex justify-center gap-3 flex-wrap" id="doubt-stats-bar">
+                        <span class="doubt-stat-chip" id="stat-total">📜 0 Doubts</span>
+                        <span class="doubt-stat-chip" id="stat-answered">✅ 0 Answered</span>
+                        <span class="doubt-stat-chip" id="stat-today">🕐 0 Today</span>
+                    </div>
+                </div>
+
+                <!-- ── SUBMISSION FORM ─────────────────────────────── -->
+                <div class="parchment-card p-8 md:p-12 border-gold border-4 shadow-2xl mb-14 scroll-reveal">
+                    <h3 class="heritage-header font-bold text-lg text-ashokablue uppercase tracking-widest mb-6 flex items-center gap-3">
+                        <span class="text-2xl">✍️</span> Submit Your Doubt
+                    </h3>
+
+                    <!-- Name + Category Row -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                        <div>
+                            <label class="doubt-label" for="doubt-name">Your Name <span class="text-saffron">*</span></label>
+                            <input type="text" id="doubt-name" placeholder="e.g. Priya Sharma"
+                                   class="doubt-input" maxlength="50" autocomplete="off">
+                            <p class="doubt-hint">Shown publicly with your doubt</p>
+                        </div>
+                        <div>
+                            <label class="doubt-label" for="doubt-category">Category <span class="text-saffron">*</span></label>
+                            <select id="doubt-category" class="doubt-input">
+                                <option value="" disabled selected>— Choose a category —</option>
+                                <option value="Preamble">📜 Preamble</option>
+                                <option value="Fundamental Rights">⚖️ Fundamental Rights</option>
+                                <option value="Directive Principles">🏛️ Directive Principles</option>
+                                <option value="Amendments">📝 Amendments</option>
+                                <option value="Judiciary">🔍 Judiciary</option>
+                                <option value="Parliament">🏟️ Parliament & Legislature</option>
+                                <option value="Elections">🗳️ Elections</option>
+                                <option value="Emergency Provisions">🚨 Emergency Provisions</option>
+                                <option value="General">💬 General / Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Doubt Textarea -->
+                    <div class="mb-2">
+                        <label class="doubt-label" for="doubt-text">Your Doubt <span class="text-saffron">*</span></label>
+                        <div class="relative">
+                            <textarea id="doubt-text"
+                                      placeholder="Describe your doubt clearly… e.g. What is the difference between Article 14 and Article 21?"
+                                      class="doubt-input doubt-textarea"
+                                      maxlength="600"
+                                      rows="5"></textarea>
+                            <!-- Word / Char counter -->
+                            <div class="doubt-counter-bar">
+                                <span id="doubt-word-count" class="doubt-counter-chip">0 words</span>
+                                <span id="doubt-char-count" class="doubt-counter-chip">0 / 600 chars</span>
+                                <span id="doubt-read-time" class="doubt-counter-chip hidden">~0 sec read</span>
+                            </div>
+                        </div>
+                        <!-- Writing quality indicator -->
+                        <div class="mt-2" id="doubt-quality-bar">
+                            <div class="flex items-center gap-2">
+                                <div class="flex-1 h-1.5 rounded-full bg-leather/10 overflow-hidden">
+                                    <div id="doubt-quality-fill" class="h-full rounded-full transition-all duration-500" style="width:0%"></div>
+                                </div>
+                                <span id="doubt-quality-label" class="text-[10px] font-bold uppercase tracking-widest text-leather/40">Start typing…</span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="mb-6">
+                        <label class="doubt-label mb-2 block">Quick Tags <span class="text-leather/40 font-normal normal-case tracking-normal">(optional — click to add)</span></label>
+                        <div class="flex flex-wrap gap-2" id="doubt-tag-picker">
+                            <button type="button" class="doubt-tag-btn" data-tag="Article 21">Art. 21</button>
+                            <button type="button" class="doubt-tag-btn" data-tag="Article 14">Art. 14</button>
+                            <button type="button" class="doubt-tag-btn" data-tag="Article 32">Art. 32</button>
+                            <button type="button" class="doubt-tag-btn" data-tag="DPSP">DPSP</button>
+                            <button type="button" class="doubt-tag-btn" data-tag="Emergency">Emergency</button>
+                            <button type="button" class="doubt-tag-btn" data-tag="Amendment">Amendment</button>
+                            <button type="button" class="doubt-tag-btn" data-tag="Preamble">Preamble</button>
+                            <button type="button" class="doubt-tag-btn" data-tag="Judiciary">Judiciary</button>
+                            <button type="button" class="doubt-tag-btn" data-tag="Parliament">Parliament</button>
+                            <button type="button" class="doubt-tag-btn" data-tag="Rights">Rights</button>
+                        </div>
+                        <div class="mt-2 text-xs italic text-leather/40" id="doubt-selected-tags-preview">No tags selected.</div>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="flex flex-col sm:flex-row gap-4 items-center justify-between">
+                        <p class="text-xs italic text-leather/40">Fields marked <span class="text-saffron font-bold">*</span> are required. Keep your doubt respectful and on-topic.</p>
+                        <button id="doubt-submit-btn"
+                                class="doubt-submit-btn"
+                                disabled>
+                            <span id="doubt-btn-text">Post Doubt</span>
+                            <span id="doubt-btn-spinner" class="hidden">⏳ Posting…</span>
+                        </button>
+                    </div>
+
+                    <!-- Success / Error toast -->
+                    <div id="doubt-toast" class="hidden mt-5 px-5 py-3 rounded text-sm font-bold text-center transition-all"></div>
+                </div>
+
+                <!-- ── COMMUNITY WALL ──────────────────────────────── -->
+                <div class="scroll-reveal">
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
+                        <h3 class="heritage-header font-bold text-xl text-ashokablue uppercase tracking-widest">📣 Community Wall</h3>
+                        <div class="flex gap-3 flex-wrap items-center">
+                            <!-- Search -->
+                            <div class="relative">
+                                <input type="text" id="doubt-search"
+                                       placeholder="Search doubts…"
+                                       class="doubt-search-input">
+                                <span class="absolute right-3 top-1/2 -translate-y-1/2 text-gold/50">🔍</span>
+                            </div>
+                            <!-- Sort -->
+                            <select id="doubt-sort" class="doubt-sort-select">
+                                <option value="newest">⏰ Newest</option>
+                                <option value="popular">🔥 Most Upvoted</option>
+                                <option value="oldest">📅 Oldest</option>
+                            </select>
+                            <!-- Filter by category -->
+                            <select id="doubt-filter-cat" class="doubt-sort-select">
+                                <option value="all">All Categories</option>
+                                <option value="Preamble">Preamble</option>
+                                <option value="Fundamental Rights">Fundamental Rights</option>
+                                <option value="Directive Principles">Directive Principles</option>
+                                <option value="Amendments">Amendments</option>
+                                <option value="Judiciary">Judiciary</option>
+                                <option value="Parliament">Parliament</option>
+                                <option value="Elections">Elections</option>
+                                <option value="Emergency Provisions">Emergency</option>
+                                <option value="General">General</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Cards -->
+                    <div id="doubt-wall" class="flex flex-col gap-5">
+                        <div class="text-center py-16 italic text-leather/30 text-lg">
+                            Be the first to post a doubt… every great republic starts with a question.
+                        </div>
+                    </div>
+
+                    <!-- Empty state when search returns nothing -->
+                    <div id="doubt-empty" class="hidden text-center py-10 italic text-leather/30">No matching doubts found.</div>
+
+                    <!-- Load more -->
+                    <div class="mt-8 text-center">
+                        <button id="doubt-load-more" class="hidden gold-border px-8 py-3 heritage-header font-bold text-xs uppercase tracking-widest hover:bg-gold hover:text-white transition-all">Load More Doubts ↓</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════════ -->
+        <!-- FOOTER                                                   -->
+        <!-- ════════════════════════════════════════════════════════ -->
+        <footer class="bg-leather text-parchment/60 py-20 px-6 text-center border-t-8 border-gold">
+            <div class="max-w-7xl mx-auto">
+                <img src="assets/pccoe_logo.png" alt="PCCoE" class="h-16 mx-auto mb-8 filter grayscale brightness-200 opacity-30">
+                <h3 class="heritage-header font-bold text-2xl text-parchment/90 mb-4 uppercase tracking-widest">Swarajya Vidya</h3>
+                <p class="italic mb-10">"Dharmo Rakshati Rakshitah"</p>
+                <div class="flex justify-center flex-wrap gap-8 md:gap-12 mb-12 heritage-header text-xs font-bold uppercase tracking-widest">
+                    <a href="#preamble-section" class="hover:text-saffron transition-colors">Preamble</a>
+                    <a href="#library-section" class="hover:text-saffron transition-colors">Gyan Library</a>
+                    <a href="#quiz-section" class="hover:text-saffron transition-colors">Civic Quiz</a>
+                    <a href="#calc-section" class="hover:text-saffron transition-colors">Witness</a>
+                    <a href="#doubt-section" class="hover:text-saffron transition-colors">Have a Doubt?</a>
+                </div>
+                <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-gold/40">The Living Constitution © 2026 – PCCoE Constitution Explorer</p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Scripts — only bundle.js is the single source of truth -->
+    <script src="scripts/bundle.js"></script>
+    <script src="scripts/doubts.js"></script>
+
+    <!-- Mobile Nav Script -->
+    <script>
+        // Mobile nav (simple, no dependency on app)
+        const toggle = document.getElementById('mobile-nav-toggle');
+        const menu = document.getElementById('mobile-nav-menu');
+        if (toggle && menu) {
+            toggle.addEventListener('click', () => {
+                const isOpen = menu.style.display === 'block';
+                menu.style.display = isOpen ? 'none' : 'block';
+                toggle.innerHTML = isOpen ? '☰' : '✕';
+            });
+            menu.querySelectorAll('a').forEach(a => {
+                a.addEventListener('click', () => {
+                    menu.style.display = 'none';
+                    toggle.innerHTML = '☰';
+                });
+            });
+        }
+
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
