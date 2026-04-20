@@ -20,7 +20,9 @@
     'use strict';
 
     /* ─── Constants ──────────────────────────────────────────── */
-    const STORAGE_KEY  = 'sv_doubts_v3';
+    const SUPABASE_URL = 'https://drwwhfftsgjdwslrpkkd.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRyd3doZmZ0c2dqZHdzbHJwa2tkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY2NzgzOTAsImV4cCI6MjA5MjI1NDM5MH0.gozSgzeSzoY7kXEF3evEBEpTlezrMWskAqMy9-nI6Vw';
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     const UPVOTES_KEY  = 'sv_doubt_upvotes_v3';
     const PAGE_SIZE    = 6;
     const MAX_WORDS    = 120;   // soft guide; chars capped at 600 by HTML
@@ -89,22 +91,28 @@
                d.getFullYear() === n.getFullYear();
     }
 
-    function genId() {
-        return 'dbt_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
-    }
+    
 
     /* ─── Persistence ─────────────────────────────────────────── */
-    function load() {
+    async function load() {
         try {
-            doubts     = JSON.parse(localStorage.getItem(STORAGE_KEY))  || [];
             upvotedIds = new Set(JSON.parse(localStorage.getItem(UPVOTES_KEY)) || []);
+            const { data, error } = await supabase
+                .from('doubts')
+                .select('*')
+                .order('timestamp', { ascending: false });
+            if (error) {
+                console.error("Supabase Error:", error);
+                doubts = [];
+            } else {
+                doubts = data || [];
+            }
         } catch (_) {
             doubts = []; upvotedIds = new Set();
         }
     }
 
-    function save() {
-        localStorage.setItem(STORAGE_KEY,  JSON.stringify(doubts));
+    function saveUpvotesLocally() {
         localStorage.setItem(UPVOTES_KEY,  JSON.stringify([...upvotedIds]));
     }
 
@@ -199,7 +207,7 @@
     }
 
     /* ─── Submission ──────────────────────────────────────────── */
-    function handleSubmit() {
+    async function handleSubmit() {
         const name  = nameInput.value.trim();
         const cat   = catSelect.value;
         const text  = textArea.value.trim();
@@ -209,20 +217,27 @@
         btnText.classList.add('hidden');
         btnSpinner.classList.remove('hidden');
 
-        // Simulate brief async delay
-        setTimeout(() => {
-            const doubt = {
-                id:        genId(),
-                name,
-                category:  cat,
-                text,
-                tags:      [...selectedTags],
-                upvotes:   0,
-                timestamp: Date.now()
-            };
+        const doubtPayload = {
+            name,
+            category:  cat,
+            text,
+            tags:      [...selectedTags],
+            upvotes:   0,
+            timestamp: Date.now()
+        };
 
-            doubts.unshift(doubt);
-            save();
+        const { data, error } = await supabase.from('doubts').insert([doubtPayload]).select();
+        
+        if (error) {
+            console.error(error);
+            showToast('Error posting doubt. Try again.', 'error');
+            btnText.classList.remove('hidden');
+            btnSpinner.classList.add('hidden');
+            submitBtn.disabled = false;
+            return;
+        }
+
+        doubts.unshift(data[0]);
 
             // Reset form
             nameInput.value  = '';
@@ -241,7 +256,7 @@
             visibleCount = PAGE_SIZE;
             renderWall();
             updateStats();
-        }, 600);
+        
     }
 
     /* ─── Toast ───────────────────────────────────────────────── */
@@ -395,7 +410,7 @@
     }
 
     /* ─── Upvoting ────────────────────────────────────────────── */
-    function toggleUpvote(id, btn) {
+    async function toggleUpvote(id, btn) {
         const doubt = doubts.find(d => d.id === id);
         if (!doubt) return;
 
@@ -411,7 +426,8 @@
             btn.innerHTML = `▲ ${doubt.upvotes} Upvote${doubt.upvotes !== 1 ? 's' : ''}`;
         }
 
-        save();
+        saveUpvotesLocally();
+        await supabase.from('doubts').update({ upvotes: doubt.upvotes }).eq('id', id);
         updateStats();
 
         // Re-render only if sorted by popular to reorder correctly
@@ -462,16 +478,19 @@
     }
 
     /* ─── Bootstrap ───────────────────────────────────────────── */
-    function init() {
-        load();
+    async function init() {
+        await load();
         initTagPicker();
         initEvents();
         updateCounters();
         renderWall();
         updateStats();
 
-        // Auto-refresh timestamps every 60s
-        setInterval(() => renderWall(), 60_000);
+        // Auto-refresh from DB every 60s
+        setInterval(async () => {
+            await load();
+            renderWall();
+        }, 60_000);
     }
 
     if (document.readyState === 'loading') {
