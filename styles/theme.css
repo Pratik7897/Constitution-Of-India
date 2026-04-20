@@ -1,4 +1,5 @@
 :root {
+    /* ── LIGHT MODE VARIABLES ── */
     --saffron: #FF9933;
     --pure-white: #FFFFFF;
     --india-green: #138808;
@@ -8,6 +9,19 @@
     --parchment: #F4EBD0;
     --leather: #3D2B1F;
     --glass: rgba(255, 255, 255, 0.15);
+}
+
+html.dark {
+    /* ── DARK MODE VARIABLES ── */
+    --saffron: #FF9933; /* keep recognizable */
+    --pure-white: #111827; /* deep slate */
+    --india-green: #22c55e; /* lighter green for contrast */
+    --ashoka-blue: #93c5fd; /* light blue */
+    --gold: #D4AF37;
+    --gold-light: #9ca3af; /* muted highlight */
+    --parchment: #0f172a; /* primary dark background */
+    --leather: #e2e8f0; /* primary light text */
+    --glass: rgba(0, 0, 0, 0.5);
 }
 
 /* ─── BODY & BACKGROUND ─────────────────────────────────────── */
@@ -109,9 +123,7 @@ header.sticky-header {
     transition: max-height 0.5s ease-in-out;
     overflow: hidden;
 }
-.lib-card.open .lib-content {
-    /* max-height set by JS via scrollHeight */
-}
+/* max-height set by JS via scrollHeight on .lib-card.open .lib-content */
 .lib-card .lib-arrow {
     transition: transform 0.3s ease;
     display: inline-block;
@@ -513,3 +525,35 @@ input.border-red-500 {
     border-radius: 20px;
 }
 
+/* ─── DARK MODE EXPLICIT OVERRIDES ───────────────────────────── */
+html.dark body {
+    background-image: none;
+}
+
+html.dark .parchment-card {
+    background: #1e293b;
+    background-image: none;
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+html.dark header.sticky-header {
+    background: rgba(15, 23, 42, 0.95);
+}
+
+html.dark #mobile-nav-menu {
+    background: rgba(15, 23, 42, 0.98);
+}
+
+html.dark .doubt-input, 
+html.dark .doubt-search-input, 
+html.dark .doubt-sort-select {
+    background: #1e293b;
+    background-image: none;
+    color: var(--leather);
+}
+
+html.dark .doubt-card {
+    background: #1e293b;
+    background-image: none;
+}

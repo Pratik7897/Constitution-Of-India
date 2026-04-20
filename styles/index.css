@@ -1,13 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;700&display=swap');
 
-:root {
-    --saffron: #FF9933;
-    --wash-white: #FDFDFD;
-    --green: #138808;
-    --ashoka-blue: #000080;
-    --parchment: #F5F5DC;
-    --leather: #3d2b1f;
-}
+/* Variables are now exclusively managed in theme.css for Light/Dark mode consistency */
 
 * {
     margin: 0;
