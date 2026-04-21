@@ -20,8 +20,8 @@ html.dark {
     --gold: #D4AF37;
     --gold-light: #9ca3af; /* muted highlight */
     --parchment: #050505; /* Rich Black background */
-    --leather: #D1D1D1; /* Off-White for paragraphs */
-    --glass: rgba(0, 0, 0, 0.5);
+    --leather: #E5E7EB; /* Lighter slate for better dark mode readability */
+    --glass: rgba(0, 0, 0, 0.7);
 }
 
 /* ─── BODY & BACKGROUND ─────────────────────────────────────── */
@@ -635,10 +635,14 @@ html.dark .doubt-card {
 /* --- Case Studies Section Styles --- */
 #case-studies-section .article-content {
     transition: height 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    line-height: 1.8;
+    max-width: 75ch; /* Optimized for reading */
 }
 
-.rtl {
-    direction: rtl;
+.timeline-align {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 html.dark #case-studies-section .parchment-card {
@@ -724,13 +728,14 @@ html.dark #case-studies-section blockquote {
     content: '';
     position: absolute;
     left: -37px;
-    top: 6px;
-    width: 16px;
-    height: 16px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
     background: var(--saffron);
-    border: 3px solid var(--parchment);
+    border: 2px solid var(--parchment);
     border-radius: 50%;
-    box-shadow: 0 0 10px rgba(255, 153, 51, 0.5);
+    box-shadow: 0 0 12px rgba(255, 153, 51, 0.6);
+    z-index: 2;
 }
 
 .dark .timeline-step::before {
@@ -738,13 +743,14 @@ html.dark #case-studies-section blockquote {
 }
 
 .verdict-snapshot {
-    background: rgba(212, 175, 55, 0.08);
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    border-radius: 12px;
-    padding: 2rem;
-    margin: 2rem 0;
-    backdrop-filter: blur(12px);
+    background: rgba(212, 175, 55, 0.1);
+    border: 1.5px solid rgba(212, 175, 55, 0.4);
+    border-radius: 1px;
+    padding: 2.5rem;
+    margin: 0 0 2rem 0;
+    backdrop-filter: blur(8px);
     position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 .verdict-snapshot::after {
@@ -763,15 +769,15 @@ html.dark #case-studies-section blockquote {
 .impact-badge {
     display: inline-block;
     padding: 6px 16px;
-    background: rgba(212,175,55,0.15);
-    color: var(--gold);
-    border-radius: 20px;
+    background: var(--gold);
+    color: #121212;
+    border-radius: 2px;
     font-size: 11px;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     margin-bottom: 1.5rem;
-    border: 1px solid rgba(212,175,55,0.3);
+    border: 1px solid var(--gold);
 }
 
 .court-bench {
