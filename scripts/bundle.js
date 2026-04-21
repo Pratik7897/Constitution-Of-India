@@ -585,8 +585,9 @@ class SwarajyaApp {
         }
 
         const constYear = 1950;
-        const userAge = currentYear - year;
         const constAge = currentYear - constYear;
+        const yearsLivedThrough = currentYear - Math.max(year, constYear);
+        const ageRatio = ((yearsLivedThrough / constAge) * 100).toFixed(0);
 
         // Count amendments and elections that happened AFTER birth year
         const amdSince1950 = 106; // total as of 2024
@@ -596,8 +597,6 @@ class SwarajyaApp {
 
         // Elections - count those after birth
         const electionsAfterBirth = CALCULATOR_EVENTS.filter(e => e.year > year && e.year <= currentYear && e.event.toLowerCase().includes('elections')).length;
-
-        const ageRatio = userAge > 0 ? ((constAge / userAge) * 100).toFixed(0) : "∞";
 
         // Find meaningful events
         const personalEvents = CALCULATOR_EVENTS.filter(e => e.year > year && e.year <= currentYear).slice(0, 3);
