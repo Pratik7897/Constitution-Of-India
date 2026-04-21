@@ -672,3 +672,125 @@ html.dark #case-studies-section blockquote {
     color: #A0A0A0 !important;
     border-top-color: rgba(212, 175, 55, 0.1) !important;
 }
+
+/* ════════════════════════════════════════════════════════ */
+/* CASE STUDIES AMPLIFICATION                               */
+/* ════════════════════════════════════════════════════════ */
+.case-header-art {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+    margin-bottom: -60px;
+    z-index: 1;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.case-header-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.case-card:hover .case-header-art img {
+    transform: scale(1.08);
+}
+
+.case-header-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(5,5,5,0) 20%, rgba(5,5,5,0.9) 100%);
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-end;
+    padding: 2.5rem;
+}
+
+.case-timeline-container {
+    padding-left: 28px;
+    border-left: 2px solid var(--gold);
+    margin: 2.5rem 0;
+    position: relative;
+}
+
+.timeline-step {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-step::before {
+    content: '';
+    position: absolute;
+    left: -37px;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    background: var(--saffron);
+    border: 3px solid var(--parchment);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 153, 51, 0.5);
+}
+
+.dark .timeline-step::before {
+    border-color: #121212;
+}
+
+.verdict-snapshot {
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    backdrop-filter: blur(12px);
+    position: relative;
+}
+
+.verdict-snapshot::after {
+    content: 'VERDICT';
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: var(--gold);
+    color: #121212;
+    font-size: 10px;
+    font-weight: 900;
+    padding: 2px 10px;
+    border-radius: 4px;
+}
+
+.impact-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(212,175,55,0.15);
+    color: var(--gold);
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(212,175,55,0.3);
+}
+
+.court-bench {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(212,175,55,0.1);
+}
+
+.bench-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.bench-dot.yes { background: #138808; box-shadow: 0 0 8px #138808; }
+.bench-dot.no { background: #ef4444; box-shadow: 0 0 8px #ef4444; }
+
+html.dark .verdict-snapshot {
+    background: rgba(255, 255, 255, 0.03);
+}
