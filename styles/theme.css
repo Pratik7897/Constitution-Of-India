@@ -19,8 +19,8 @@ html.dark {
     --ashoka-blue: #93c5fd; /* light blue */
     --gold: #D4AF37;
     --gold-light: #9ca3af; /* muted highlight */
-    --parchment: #0f172a; /* primary dark background */
-    --leather: #e2e8f0; /* primary light text */
+    --parchment: #050505; /* Rich Black background */
+    --leather: #D1D1D1; /* Off-White for paragraphs */
     --glass: rgba(0, 0, 0, 0.5);
 }
 
@@ -531,14 +531,56 @@ html.dark body {
 }
 
 html.dark .parchment-card {
-    background: #1e293b;
+    background: #121212;
     background-image: none;
-    border-color: rgba(212, 175, 55, 0.4);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 0.5px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 html.dark header.sticky-header {
-    background: rgba(15, 23, 42, 0.95);
+    background: rgba(5, 5, 5, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Dark Theme Overhaul Additions */
+html.dark #hero .parchment-card {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(18, 18, 18, 0.65);
+    padding: 4rem 2rem !important;
+}
+
+@media (min-width: 768px) {
+    html.dark #hero .parchment-card {
+        padding: 7rem 5rem !important; 
+    }
+}
+
+html.dark #hero h1.heritage-header {
+    background: linear-gradient(135deg, #F5F5F7 0%, #D4AF37 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #F5F5F7 !important; /* Fallback for unsupported browsers */
+}
+
+html.dark .bg-saffron {
+    box-shadow: 0 0 20px rgba(255, 153, 51, 0.2);
+}
+
+html.dark .bg-ashokablue {
+    box-shadow: 0 0 20px rgba(147, 197, 253, 0.2);
+}
+
+html.dark header.sticky-header nav a:hover,
+html.dark #mobile-nav-menu a:hover,
+html.dark .mobile-nav-menu nav a:hover {
+    color: #FFD700 !important;
+}
+
+html.dark .rotating-chakra-bg {
+    opacity: 0.05 !important;
 }
 
 html.dark #mobile-nav-menu {
