@@ -544,11 +544,29 @@ html.dark header.sticky-header {
 }
 
 /* Dark Theme Overhaul Additions */
+html.dark header.sticky-header h1.heritage-header {
+    color: #D4AF37 !important; /* Metallic Gold for Logo */
+}
+
+html.dark header.sticky-header nav a,
+html.dark #mobile-nav-menu a,
+html.dark .mobile-nav-menu nav a {
+    color: #F8F8F8 !important; /* Ivory White for Navigation */
+}
+
+html.dark header.sticky-header nav a:hover,
+html.dark #mobile-nav-menu a:hover,
+html.dark .mobile-nav-menu nav a:hover {
+    color: #FFD700 !important; 
+}
+
 html.dark #hero .parchment-card {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     background: rgba(18, 18, 18, 0.65);
     padding: 4rem 2rem !important;
+    border: 1px solid transparent !important;
+    border-image: linear-gradient(135deg, rgba(212, 175, 55, 0.5), rgba(212, 175, 55, 0.05)) 1 !important;
 }
 
 @media (min-width: 768px) {
@@ -563,6 +581,13 @@ html.dark #hero h1.heritage-header {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: #F5F5F7 !important; /* Fallback for unsupported browsers */
+    max-width: 90%;
+    margin: 0 auto;
+    overflow: visible;
+}
+
+html.dark #hero p.preamble-text {
+    color: #A0A0A0 !important; /* Soft Silver */
 }
 
 html.dark .bg-saffron {
@@ -573,14 +598,12 @@ html.dark .bg-ashokablue {
     box-shadow: 0 0 20px rgba(147, 197, 253, 0.2);
 }
 
-html.dark header.sticky-header nav a:hover,
-html.dark #mobile-nav-menu a:hover,
-html.dark .mobile-nav-menu nav a:hover {
-    color: #FFD700 !important;
-}
-
 html.dark .rotating-chakra-bg {
-    opacity: 0.05 !important;
+    position: absolute !important;
+    top: 50px !important;
+    right: -100px !important;
+    bottom: auto !important;
+    opacity: 0.03 !important;
 }
 
 html.dark #mobile-nav-menu {
