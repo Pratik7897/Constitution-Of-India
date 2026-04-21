@@ -564,14 +564,15 @@ html.dark #hero .parchment-card {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     background: rgba(18, 18, 18, 0.65);
-    padding: 4rem 2rem !important;
+    padding: 4rem 5% !important;
     border: 1px solid transparent !important;
     border-image: linear-gradient(135deg, rgba(212, 175, 55, 0.5), rgba(212, 175, 55, 0.05)) 1 !important;
+    overflow: visible !important;
 }
 
 @media (min-width: 768px) {
     html.dark #hero .parchment-card {
-        padding: 7rem 5rem !important; 
+        padding: 7rem 5% !important; 
     }
 }
 
@@ -581,9 +582,17 @@ html.dark #hero h1.heritage-header {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: #F5F5F7 !important; /* Fallback for unsupported browsers */
-    max-width: 90%;
+    font-size: clamp(2rem, 8vw, 5rem) !important;
+    width: 100%;
+    box-sizing: border-box;
+    word-break: keep-all;
+    hyphens: none;
+    max-width: fit-content;
     margin: 0 auto;
     overflow: visible;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
 }
 
 html.dark #hero p.preamble-text {
