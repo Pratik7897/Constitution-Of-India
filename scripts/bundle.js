@@ -342,7 +342,7 @@ class SwarajyaApp {
         const arrow = card.querySelector('.lib-arrow');
         const isOpen = card.classList.contains('open');
 
-        // Close all other open cards
+        // Close all other open cards first (accordion)
         document.querySelectorAll('.lib-card.open').forEach(openCard => {
             if (openCard !== card) {
                 openCard.classList.remove('open');
@@ -359,7 +359,8 @@ class SwarajyaApp {
             arrow.style.transform = 'rotate(0deg)';
         } else {
             card.classList.add('open');
-            content.style.maxHeight = content.scrollHeight + 'px';
+            // Use fixed max-height — scrollHeight returns 0 on hidden elements
+            content.style.maxHeight = '1000px';
             arrow.style.transform = 'rotate(90deg)';
         }
     }
@@ -551,6 +552,9 @@ class SwarajyaApp {
     // Keyboard - press 1/2/3/4 to select answer
     setupKeyboardQuiz() {
         document.addEventListener('keydown', (e) => {
+            // Don't fire if user is typing in an input, textarea, or select
+            const tag = e.target.tagName;
+            if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
             const key = e.key;
             if (!['1','2','3','4'].includes(key)) return;
             if (this.quizAnswered) return;

@@ -77,9 +77,8 @@
             <button id="mobile-nav-toggle" class="md:hidden heritage-header font-bold text-xl text-leather w-10 h-10 flex items-center justify-center">☰</button>
         </div>
         <!-- Mobile Nav Menu -->
-        <div id="mobile-nav-menu" class="hidden md:hidden" style="display: none !important;">
-            <!-- will be shown via JS -->
-        </div>
+        <!-- mobile nav drawer is below the header tag -->
+
     </header>
 
     <!-- Mobile Nav Drawer (separate, full-width) -->
@@ -99,7 +98,7 @@
         <!-- HERO SECTION                                            -->
         <!-- ════════════════════════════════════════════════════════ -->
         <section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center px-6">
-            <h2 class="text-sm font-bold mb-6 text-leather/50 tracking-[0.6em] uppercase">Samvidhan-e-Hind</h2>
+            <p class="text-sm font-bold mb-6 text-leather/50 tracking-[0.6em] uppercase">Samvidhan-e-Hind</p>
             <div class="parchment-card p-10 md:p-20 border-double border-8 border-gold/40 relative max-w-5xl shadow-2xl mx-4">
                 <h1 class="text-5xl md:text-8xl font-bold text-ashokablue leading-tight mb-10 uppercase heritage-header">
                     The Living <br/>Constitution
@@ -190,6 +189,11 @@
         <!-- ════════════════════════════════════════════════════════ -->
         <section id="case-studies-section" class="py-24 px-6">
             <div class="max-w-6xl mx-auto">
+                <!-- Section Heading -->
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl heritage-header text-ashokablue uppercase font-bold mb-4 scroll-reveal">Constitutional Case Studies</h2>
+                    <p class="text-leather/60 italic font-bold tracking-widest uppercase text-sm scroll-reveal">Landmark judgments that shaped the soul of India</p>
+                </div>
                 <!-- Article 1: Soham Zagare -->
                 <article class="mb-32 case-card">
                     <div class="case-header-art mb-8 scroll-reveal">
@@ -403,7 +407,6 @@
                     }
                 }
             </script>
-            </div>
         </section>
 
         <!-- ════════════════════════════════════════════════════════ -->
@@ -420,7 +423,7 @@
 
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12 scroll-reveal">
                         <label for="birth-year" class="heritage-header font-bold text-sm uppercase tracking-widest text-leather/70">Your Birth Year:</label>
-                        <input type="number" id="birth-year" placeholder="e.g. 1995" min="1900" max="2024"
+                        <input type="number" id="birth-year" placeholder="e.g. 1995" min="1900" max="2026"
                                class="parchment-card p-4 border border-gold/40 w-44 text-center text-2xl font-bold focus:border-saffron outline-none transition-colors">
                         <button id="calc-btn" class="bg-saffron text-white px-8 py-4 heritage-header font-bold hover:bg-ashokablue transition-all text-xs uppercase tracking-widest shadow-xl hover:scale-105">
                             Calculate Legacy
@@ -655,11 +658,12 @@
                 <p class="italic mb-10 text-amber-100/80">"Dharmo Rakshati Rakshitah"</p>
                 <!-- Nav links -->
                 <div class="flex justify-center flex-wrap gap-8 md:gap-12 mb-12 heritage-header text-xs font-bold uppercase tracking-widest">
-                    <a href="#preamble-section" class="text-amber-100/80 hover:text-yellow-300 hover:underline underline-offset-4 decoration-yellow-400/60 transition-all duration-200">Preamble</a>
-                    <a href="#library-section" class="text-amber-100/80 hover:text-yellow-300 hover:underline underline-offset-4 decoration-yellow-400/60 transition-all duration-200">Gyan Library</a>
-                    <a href="#quiz-section"    class="text-amber-100/80 hover:text-yellow-300 hover:underline underline-offset-4 decoration-yellow-400/60 transition-all duration-200">Civic Quiz</a>
-                    <a href="#calc-section"    class="text-amber-100/80 hover:text-yellow-300 hover:underline underline-offset-4 decoration-yellow-400/60 transition-all duration-200">Witness</a>
-                    <a href="#doubt-section"   class="text-amber-100/80 hover:text-yellow-300 hover:underline underline-offset-4 decoration-yellow-400/60 transition-all duration-200">Have a Doubt?</a>
+                    <a href="#preamble-section"      class="text-amber-100/80 hover:text-yellow-300 hover:underline underline-offset-4 decoration-yellow-400/60 transition-all duration-200">Preamble</a>
+                    <a href="#library-section"       class="text-amber-100/80 hover:text-yellow-300 hover:underline underline-offset-4 decoration-yellow-400/60 transition-all duration-200">Gyan Library</a>
+                    <a href="#case-studies-section" class="text-amber-100/80 hover:text-yellow-300 hover:underline underline-offset-4 decoration-yellow-400/60 transition-all duration-200">Case Studies</a>
+                    <a href="#quiz-section"          class="text-amber-100/80 hover:text-yellow-300 hover:underline underline-offset-4 decoration-yellow-400/60 transition-all duration-200">Civic Quiz</a>
+                    <a href="#calc-section"          class="text-amber-100/80 hover:text-yellow-300 hover:underline underline-offset-4 decoration-yellow-400/60 transition-all duration-200">Witness</a>
+                    <a href="#doubt-section"         class="text-amber-100/80 hover:text-yellow-300 hover:underline underline-offset-4 decoration-yellow-400/60 transition-all duration-200">Have a Doubt?</a>
                 </div>
                 <!-- Divider -->
                 <div class="w-24 h-px bg-gold/40 mx-auto mb-8"></div>
