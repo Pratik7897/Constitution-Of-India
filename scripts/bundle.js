@@ -342,20 +342,24 @@ class SwarajyaApp {
         const arrow = card.querySelector('.lib-arrow');
         const isOpen = card.classList.contains('open');
 
-        // Close ALL open cards first (accordion: only one open at a time)
+        // Close all other open cards
         document.querySelectorAll('.lib-card.open').forEach(openCard => {
-            openCard.classList.remove('open');
-            openCard.querySelector('.lib-content').style.maxHeight = '0px';
-            openCard.querySelector('.lib-content').style.paddingBottom = '0px';
-            openCard.querySelector('.lib-arrow').style.transform = 'rotate(0deg)';
+            if (openCard !== card) {
+                openCard.classList.remove('open');
+                openCard.querySelector('.lib-content').style.maxHeight = '0px';
+                openCard.querySelector('.lib-content').style.paddingBottom = '0px';
+                openCard.querySelector('.lib-arrow').style.transform = 'rotate(0deg)';
+            }
         });
 
-        // If the clicked card was not already open, open it
-        if (!isOpen) {
+        if (isOpen) {
+            card.classList.remove('open');
+            content.style.maxHeight = '0px';
+            content.style.paddingBottom = '0px';
+            arrow.style.transform = 'rotate(0deg)';
+        } else {
             card.classList.add('open');
-            // Use a large fixed value — scrollHeight returns 0 when element is hidden
-            content.style.maxHeight = '1000px';
-            content.style.paddingBottom = '24px';
+            content.style.maxHeight = content.scrollHeight + 'px';
             arrow.style.transform = 'rotate(90deg)';
         }
     }
